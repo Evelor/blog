@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
-class AdminController
+class AdminController extends Controller
 {
-
+ public function index()
+ {
+     return view('admin.post.index');
+ }
 }
