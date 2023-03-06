@@ -3,6 +3,7 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
@@ -17,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/posts/main', [MainController::class, 'index'])->name('main.index');
 Route::get('/posts/contacts', [ContactController::class, 'index'])->name('contact.index');
@@ -38,3 +40,7 @@ Route::get('/posts/first_or_create', [PostController::class, 'firstOrCreate']);
 Route::get('/posts/update_or_create', [PostController::class, 'updateOrCreate']);
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
